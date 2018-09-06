@@ -1,8 +1,10 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App';
+import dotenv from 'dotenv';
 
-Vue.config.productionTip = false
+// in vue runtime all .env variables' name must start with "VUE_APP_"
+dotenv.config();
 
 new Vue({
-  render: h => h(App)
-}).$mount('#app')
+   render: h => h(App),
+}).$mount('#app');
