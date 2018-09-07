@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import App from './App';
+import store from './store/index';
 import dotenv from 'dotenv';
 
-// in vue runtime all .env variables' name must start with "VUE_APP_"
+// *坑 in vue runtime all .env variables' name must start with "VUE_APP_"
 dotenv.config();
 
-new Vue({
-   render: h => h(App),
+const VUE = new Vue({
+    store,
+    render: h => h(App),
 }).$mount('#app');
