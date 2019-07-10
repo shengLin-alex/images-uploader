@@ -1,16 +1,20 @@
 <template>
-    <div class="dropper">
+    <div v-if="isLoggedIn" class="dropper">
         <!-- $ 代表告訴 vue 要拿接到的事件下面 target.files -->
         <input type="file" multiple @change="uploadImages($event.target.files)" accept="image/*"/>
         <span>Drag files here!</span>
     </div>
+    <h2 v-else>Login to get started.</h2>
 </template>
 
 <script>
-    import { mapActions } from 'vuex';
+    import { mapActions, mapGetters } from 'vuex';
 
     export default {
         name: 'UploadForm',
+        computed: {
+            ...mapGetters(['isLoggedIn'])
+        },
         methods: {
             ...mapActions(['uploadImages'])
         }
