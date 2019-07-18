@@ -1,12 +1,13 @@
 const express = require('express');
 const history = require('connect-history-api-fallback');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
 app = express();
 
-const staticFileMiddleware = express.static(__dirname, 'dist');
+const staticFileMiddleware = express.static(path.join(__dirname, 'dist'));
 app.use(staticFileMiddleware); // first call to prevent static files from 404ing,
 app.use(history({
     disableDotRule: true,
