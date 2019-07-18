@@ -1,0 +1,18 @@
+const express = require('express');
+const history = require('connect-history-api-fallback');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+app = express();
+
+const staticFileMiddleware = express.static(__dirname, 'dist');
+app.use(staticFileMiddleware); // first call to prevent static files from 404ing,
+app.use(history({
+    disableDotRule: true,
+    verbose: true
+}));
+app.use(staticFileMiddleware); // second call to history mode redirect to index.html and resolve it
+
+const port = process.env.SERVER_PORT || 80;
+app.listen(port);
