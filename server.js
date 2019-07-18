@@ -1,9 +1,6 @@
 const express = require('express');
 const history = require('connect-history-api-fallback');
-const dotenv = require('dotenv');
 const path = require('path');
-
-dotenv.config();
 
 app = express();
 
