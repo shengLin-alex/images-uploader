@@ -13,4 +13,4 @@ app.use(history({
 app.use(staticFileMiddleware); // second call to history mode redirect to index.html and resolve it
 
 const port = process.env.SERVER_PORT || 8080;
-app.listen(port);
+app.listen(port, '0.0.0.0');
